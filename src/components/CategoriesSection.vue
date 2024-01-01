@@ -50,7 +50,7 @@ section {
   position: absolute;
   bottom: 0;
   left: 50%;
-  border: 1px solid white;
+  border: 2px solid white;
   width: 100px;
   border-radius: 50%;
   aspect-ratio: 1;

@@ -1,6 +1,14 @@
 <template>
   <header class="container">
-    <h1>luxury guitars at your fingertips</h1>
+    <h1>
+      <span class="accent">luxury</span>
+      guitars at
+      <span class="icon-container">
+        <IconArrowNarrowRight class="icon" size="88" />
+        your
+      </span>
+      fingertips
+    </h1>
     <div class="white-space"></div>
     <div class="hero-img">
       <div class="hero-shadow"></div>
@@ -18,8 +26,8 @@
   </header>
 </template>
 
-<script>
-export default {}
+<script setup>
+import { IconArrowNarrowRight } from '@tabler/icons-vue'
 </script>
 
 <style lang="scss" scoped>
@@ -30,18 +38,26 @@ export default {}
   align-items: center;
   flex-direction: column;
   max-width: 1600px;
-margin-inline: auto;
+  margin-inline: auto;
   width: 100%;
+  margin-top: 10vh;
 }
 .hero-img {
   position: relative;
-  height: 100vh;
+  min-height: 90vh;
   width: 100%;
   background-image: url('/src/assets/img/guitar-2.jpeg');
   background-position: center;
   background-size: cover;
 }
 
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  width: clamp(3rem, 10vw, 6rem);
+}
 .hero-shadow {
   position: absolute;
   inset: 0;
@@ -50,6 +66,8 @@ margin-inline: auto;
 }
 
 h1 {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   padding: 1rem;
   top: 50%;
