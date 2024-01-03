@@ -1,19 +1,22 @@
 <script setup>
 import TheHeader from '/src/components/TheHeader.vue'
-import TheNav from '/src/components/TheNav.vue'
 import CategoriesSection from '/src/components/CategoriesSection.vue'
 import PopularSection from '/src/components/PopularSection.vue'
 import CustomSection from '/src/components/CustomSection.vue'
-import BandsSection from '/src/components/BandsSection.vue'
+import ArtistsSection from '/src/components/ArtistsSection.vue'
 import ContactSection from '/src/components/ContactSection.vue'
+import SponsorsBanner from '/src/components/SponsorsBanner.vue'
+import AboutSection from '/src/components/AboutSection.vue'
 </script>
 
 <template>
-  <TheNav></TheNav>
   <TheHeader></TheHeader>
+  <SponsorsBanner></SponsorsBanner>
   <CategoriesSection />
   <PopularSection></PopularSection>
   <CustomSection></CustomSection>
-  <BandsSection></BandsSection>
+  <ArtistsSection></ArtistsSection>
+  <AboutSection></AboutSection>
   <ContactSection></ContactSection>
+  <TheFooter></TheFooter>
 </template>

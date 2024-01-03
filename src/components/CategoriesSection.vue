@@ -24,7 +24,6 @@ section {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-block: 5rem;
   width: 100vw;
   color: white;
 }

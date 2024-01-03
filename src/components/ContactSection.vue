@@ -39,7 +39,7 @@ export default {}
 }
 
 h2 {
-  font-size: clamp(3rem, 10vw, 5rem);
+  font-size: clamp(2.7rem, 10vw, 5rem);
 }
 
 h3 {
@@ -65,6 +65,14 @@ h3 {
     }
   }
 }
+@media (min-width: 920px) {
+  .text {
+    div {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
 
 @media (min-width: 768px) {
   .wrapper {
@@ -73,13 +81,6 @@ h3 {
   h2 {
     .first {
       width: 70%;
-    }
-  }
-
-  .text {
-    div {
-      flex-direction: row;
-      align-items: center;
     }
   }
 }

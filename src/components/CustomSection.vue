@@ -57,7 +57,7 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 1rem;
     width: 100%;
     img {
       border-radius: 8px;
@@ -131,10 +131,11 @@ section {
   .wrapper {
     flex-direction: row;
     .images {
-      width: 40%;
+      width: 50%;
+
     }
     .text {
-      width: 60%;
+      width: 50%;
     }
   }
 }
@@ -145,6 +146,7 @@ section {
     .images {
       flex-direction: row;
       padding-left: 2rem;
+
       img {
         max-width: 50%;
       }

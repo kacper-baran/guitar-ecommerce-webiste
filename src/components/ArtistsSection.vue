@@ -1,5 +1,5 @@
 <template>
-  <section id="bands">
+  <section id="artist">
     <h2><span class="accent">Artists </span> We Work With</h2>
     <div class="shadow"></div>
     <button class="arrow one" @click="carouselHandler(false)">
@@ -49,16 +49,11 @@
 </template>
 
 <script setup>
-// import { ref } from 'vue'
 import { IconArrowNarrowRight, IconArrowNarrowLeft } from '@tabler/icons-vue'
 
-// const imgOne = ref(1)
-// const imgTwo = ref(2)
-// const imgThree = ref(3)
-// const imgFour = ref(4)
+
 const carouselHandler = (next) => {
-  // const images = [imgOne, imgTwo, imgThree, imgFour]
-  const cards = [...document.querySelectorAll('.artist-card')]
+  const cards = document.querySelectorAll('.artist-card')
   cards.forEach((el) => {
     const buttons = document.querySelectorAll('.arrow')
     buttons.forEach((el) => {
@@ -96,19 +91,6 @@ const carouselHandler = (next) => {
     }
     console.log(el.dataset.card)
   })
-  // images.forEach((img) => {
-  //   if (next === true) {
-  //     if (img.value === 4) {
-  //       const card = document.querySelector('[data-card="4"]')
-  //       card.style.left = '150%'
-  //       img.value = 1
-  //     } else img.value++
-  //   } else {
-  //     if (img.value === 1) {
-  //       img.value = 4
-  //     } else img.value--
-  //   }
-  // })
 }
 </script>
 
@@ -127,7 +109,7 @@ section {
     align-items: flex-end;
     position: relative;
     background-image: url('/src/assets/img/bands-bg.jpeg');
-    min-height: 100vh;
+    min-height: 750px;
     max-width: 100vw;
     border-radius: 26px;
     background-position: center;
@@ -152,7 +134,7 @@ section {
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 33%;
+    width: 80%;
     height: 400px;
     overflow: hidden;
     background-color: transparent;
@@ -202,14 +184,14 @@ section {
     }
 
     &[data-card='1'] {
-      left: 0;
+      left: -100%;
       top: 42%;
       transform: rotate3d(1, -1, 1, -10deg);
       transition: opacity 0.5s;
     }
     &[data-card='2'] {
       left: 50%;
-      top: 35%;
+      top: 27%;
       background-color: #0000003f;
       transform: rotate3d(1, 0, 0, 14deg);
       .artist-card__text {
@@ -217,7 +199,7 @@ section {
       }
     }
     &[data-card='3'] {
-      left: 100%;
+      left: 200%;
       top: 42%;
       transform: rotate3d(1, 1, -1, -10deg);
       transition: opacity 0.5s;
@@ -234,7 +216,7 @@ section {
     position: absolute;
     display: grid;
     place-items: center;
-    background-color: #0000003f;
+    background-color: #0000007f;
     width: 70px;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -249,11 +231,63 @@ section {
   }
   .one {
     left: 23%;
-    top: 63%;
+    top: 90%;
   }
   .two {
     right: 23%;
-    top: 63%;
+    top: 90%;
+  }
+}
+
+@media (min-width: 600px) {
+  section {
+    .artist-card {
+      &[data-card='2'] {
+        left: 50%;
+        top: 30%;
+        background-color: #0000003f;
+        .artist-card__text {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  section {
+    .artist-card {
+      width: 33%;
+      &[data-card='0'] {
+        top: 50%;
+        left: -100%;
+      }
+
+      &[data-card='1'] {
+        left: 0;
+        top: 42%;
+      }
+      &[data-card='2'] {
+        left: 50%;
+        top: 35%;
+      }
+      &[data-card='3'] {
+        left: 100%;
+        top: 42%;
+      }
+
+      &:where(:not([data-card='0'], [data-card='1'], [data-card='2'], [data-card='3'])) {
+        top: 50%;
+        left: 150%;
+      }
+    }
+
+    .one {
+      top: 63%;
+    }
+    .two {
+      top: 63%;
+    }
   }
 }
 </style>

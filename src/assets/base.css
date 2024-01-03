@@ -58,6 +58,14 @@
   font-weight: normal;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+}
+
 body {
   min-height: 100vh;
   color: var(--color-text);
