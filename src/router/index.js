@@ -32,7 +32,7 @@ const router = createRouter({
         const products = ref([])
         const productStore = useProductStore()
         productStore.products.forEach((el) => products.value.push(el.id))
-        if (!products.value.includes(to.params.productId)) {
+        if (!products.value.includes(to.params.itemId)) {
           next('/page-not-found')
         } else {
           next(true)
