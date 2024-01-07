@@ -132,7 +132,6 @@ section {
     flex-direction: row;
     .images {
       width: 50%;
-
     }
     .text {
       width: 50%;

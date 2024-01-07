@@ -51,7 +51,6 @@
 <script setup>
 import { IconArrowNarrowRight, IconArrowNarrowLeft } from '@tabler/icons-vue'
 
-
 const carouselHandler = (next) => {
   const cards = document.querySelectorAll('.artist-card')
   cards.forEach((el) => {

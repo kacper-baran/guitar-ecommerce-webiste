@@ -70,7 +70,7 @@ export const useProductStore = defineStore('product', {
       console.log(this.cartLength)
     },
     removeFromCart(id) {
-      console.log(id);
+      console.log(id)
       const newCart = this.cart.filter((el) => el.id !== id)
       this.cart = newCart
     }
