@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="img-container">
-      <img :src="item.img" alt="" />
+      <img :src="useImage(item.img)" alt="" />
     </div>
     <div class="text-container">
       <h3>{{ item.title }}</h3>
@@ -32,6 +32,9 @@ getItem()
 watch(route, () => {
   getItem()
 })
+function useImage(url) {
+  return new URL(`${url}`, import.meta.url).href
+}
 </script>
 
 <style lang="scss" scoped>

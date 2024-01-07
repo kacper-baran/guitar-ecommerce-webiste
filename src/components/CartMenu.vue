@@ -1,34 +1,37 @@
 <template>
-  <div class="container" :class="{ active: props.active }">
-    <div class="close-btn" @click="closeCart"><IconX size="35"></IconX></div>
-    <div>
-      <h3>Cart</h3>
-      <ul v-if="productStore.cart.length > 0">
-        <li v-for="item in productStore.cart" :key="item.id">
-          <div class="img">
-            <img :src="item.img" alt="picture of item" />
-          </div>
-          <div class="text">
-            <div class="title">{{ item.title }}</div>
-            <div class="price">{{ item.price }}$</div>
-            <div class="amount">
-              <span @click="handleAmount(false, item.id)">-</span>
-              <span>{{ item.amount }}</span>
-              <span @click="handleAmount(true, item.id)">+</span>
+  <div class="wrapper">
+    <div class="container" :class="{ active: props.active }">
+      <div class="close-btn" @click="closeCart"><IconX size="35"></IconX></div>
+      <div>
+        <h3>Cart</h3>
+        <ul v-if="productStore.cart.length > 0">
+          <li v-for="item in productStore.cart" :key="item.id">
+            <div class="img">
+              <img :src="item.img" alt="picture of item" />
             </div>
-            <router-link :to="'/' + item.id" @click="closeCart">Go to offer</router-link>
-            <div class="remove-btn" @click="productStore.removeFromCart(item.id)">
-              <IconX size="30"></IconX>
+            <div class="text">
+              <div class="title">{{ item.title }}</div>
+              <div class="price">{{ item.price }}$</div>
+              <div class="amount">
+                <span @click="handleAmount(false, item.id)">-</span>
+                <span>{{ item.amount }}</span>
+                <span @click="handleAmount(true, item.id)">+</span>
+              </div>
+              <router-link :to="'/' + item.id" @click="closeCart">Go to offer</router-link>
+              <div class="remove-btn" @click="productStore.removeFromCart(item.id)">
+                <IconX size="30"></IconX>
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
-      <div class="empty" v-else>Your cart is empty</div>
+          </li>
+        </ul>
+        <div class="empty" v-else>Your cart is empty</div>
+      </div>
+      <div class="checkout">
+        <div class="total">Total: {{ totalPrice }}$</div>
+        <button>Go to checkout</button>
+      </div>
     </div>
-    <div class="checkout">
-      <div class="total">Total: {{ totalPrice }}$</div>
-      <button>Go to checkout</button>
-    </div>
+    <div class="white-space" @click="closeCart" :class="{ active: props.active }"></div>
   </div>
 </template>
 
@@ -39,7 +42,6 @@ import { computed } from 'vue'
 const productStore = useProductStore()
 const props = defineProps(['active'])
 const emit = defineEmits(['closeBtnClicked'])
-
 const closeCart = () => {
   emit('closeBtnClicked')
 }
@@ -67,6 +69,19 @@ const totalPrice = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+  display: flex;
+}
+.white-space {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  translate: 100vw;
+  &.active {
+    translate: 0;
+  }
+}
 .container {
   display: flex;
   flex-direction: column;
