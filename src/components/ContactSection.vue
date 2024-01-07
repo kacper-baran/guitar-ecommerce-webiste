@@ -1,5 +1,5 @@
 <template>
-  <setction id="contact">
+  <section id="contact">
     <div class="wrapper">
       <h2>
         <div class="first"><span class="accent">Ready to</span> elevate your performence?</div>
@@ -13,12 +13,10 @@
         </div>
       </div>
     </div>
-  </setction>
+  </section>
 </template>
 
-<script>
-export default {}
-</script>
+<script></script>
 
 <style lang="scss" scoped>
 .wrapper {

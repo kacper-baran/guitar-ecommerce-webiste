@@ -1,6 +1,14 @@
 <template>
   <section id="products">
-    <h2>Our most <span class="accent"> popular </span> offers</h2>
+    <div class="heading">
+      <div class="sub-heading">
+        <div class="sub-title">We combine traditional craftsmanship with modern design</div>
+        <div class="logo">
+          <IconMilitaryAward size="75" stroke-width="1" color="white"></IconMilitaryAward>
+        </div>
+      </div>
+      <h2>Our most <span class="accent"> popular </span> offers</h2>
+    </div>
     <div class="arrows">
       <div class="arrow-left" @click="handleProducts(false)">
         <IconArrowNarrowLeft size="50" color="white" stroke-width="1"></IconArrowNarrowLeft>
@@ -10,49 +18,70 @@
       </div>
     </div>
     <div class="card-container">
-      <div class="card">
+      <div class="card" v-for="guitar in productStore.products" :key="guitar.id">
+        <router-link :to="'/' + guitar.id" class="link"></router-link>
         <div class="img-container">
-          <img src="/src/assets/img/ibanez.jpeg" alt="" />
+          <img :src="guitar.img" alt="picture of guitar" />
         </div>
-        <div class="text"><span>guitar</span><span>4000$</span></div>
-      </div>
-      <div class="card">
-        <div class="img-container">
-          <img src="/src/assets/img/martin.jpeg" alt="" />
+        <div class="text">
+          <span>{{ guitar.title }}</span>
+          <span>{{ guitar.price }}$</span>
         </div>
-
-        <div class="text"><span>guitar</span><span>4000$</span></div>
-      </div>
-      <div class="card">
-        <div class="img-container">
-          <img src="/src/assets/img/adversary.png" alt="" />
-        </div>
-        <div class="text"><span>guitar</span><span>4000$</span></div>
-      </div>
-      <div class="card">
-        <div class="img-container">
-          <img src="/src/assets/img/esp.png" alt="" />
-        </div>
-        <div class="text"><span>guitar</span><span>4000$</span></div>
-      </div>
-      <div class="card">
-        <div class="img-container">
-          <img src="/src/assets/img/esp.png" alt="" />
-        </div>
-        <div class="text"><span>guitar</span><span>4000$</span></div>
-      </div>
-      <div class="card">
-        <div class="img-container">
-          <img src="/src/assets/img/esp.png" alt="" />
-        </div>
-        <div class="text"><span>guitar</span><span>4000$</span></div>
       </div>
     </div>
+    <!-- <div class="card-container">
+      <div class="card">
+        <router-link to="/guitar-details" class="link"></router-link>
+        <div class="img-container">
+          <img src="/src/assets/img/ibanez.jpeg" alt="Electro-acoustic guitar" />
+        </div>
+        <div class="text"><span>guitar</span><span>4000$</span></div>
+      </div>
+      <div class="card">
+        <router-link to="/guitar-details" class="link"></router-link>
+        <div class="img-container">
+          <img src="/src/assets/img/martin.jpeg" alt="Acoustic guitar" />
+        </div>
+
+        <div class="text"><span>guitar</span><span>7000$</span></div>
+      </div>
+      <div class="card">
+        <router-link to="/guitar-details" class="link"></router-link>
+        <div class="img-container">
+          <img src="/src/assets/img/adversary.png" alt="8 string guitar" />
+        </div>
+        <div class="text"><span>guitar</span><span>2999$</span></div>
+      </div>
+      <div class="card">
+        <router-link to="/guitar-details" class="link"></router-link>
+        <div class="img-container">
+          <img src="/src/assets/img/gibson-sg.jpeg" alt="Red Gibson SG guitar" />
+        </div>
+        <div class="text"><span>guitar</span><span>2000$</span></div>
+      </div>
+      <div class="card">
+        <router-link to="/guitar-details" class="link"></router-link>
+        <div class="img-container">
+          <img src="/src/assets/img/gibson-les-paul.jpeg" alt="Gibson les paul" />
+        </div>
+        <div class="text"><span>guitar</span><span>8000$</span></div>
+      </div>
+      <div class="card">
+        <router-link to="/guitar-details" class="link"></router-link>
+        <div class="img-container">
+          <img src="/src/assets/img/gibson-flying-v.jpeg" alt="Gibson flying v guitar" />
+        </div>
+        <div class="text"><span>guitar</span><span>5000$</span></div>
+      </div>
+    </div> -->
   </section>
 </template>
 
 <script setup>
-import { IconArrowNarrowRight, IconArrowNarrowLeft } from '@tabler/icons-vue'
+import { IconArrowNarrowRight, IconArrowNarrowLeft, IconMilitaryAward } from '@tabler/icons-vue'
+import { useProductStore } from '/src/store/productsStore.js'
+
+const productStore = useProductStore()
 
 const handleProducts = (next) => {
   const cardsContainer = document.querySelector('.card-container')
@@ -71,7 +100,6 @@ section {
 h2 {
   text-align: center;
   font-size: clamp(3rem, 10vw, 5.5rem);
-  max-width: 40%;
   margin-inline: auto;
 }
 
@@ -98,14 +126,17 @@ h2 {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-width: 340px;
-  flex: 2 1 auto;
-
   max-height: 550px;
   padding: 0.4rem;
-
+  cursor: pointer;
+  .link {
+    position: absolute;
+    inset: 0;
+  }
   &:nth-child(even) {
     max-height: 480px;
   }
@@ -119,35 +150,61 @@ h2 {
     border-radius: 8px;
     overflow: hidden;
   }
-
   img {
     max-width: 100%;
     max-height: 100%;
   }
+
   .text {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    span {
+      font-weight: 700;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
     span:last-of-type {
       font-size: 1.6rem;
-      font-weight: 700;
     }
     span:first-of-type {
       font-size: 1.3rem;
-      font-weight: 700;
+    }
+  }
+}
 
+.heading {
+  padding: 1rem;
+  width: 100%;
+  .sub-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    .logo {
+      width: fit-content;
+      right: 0;
+    }
+    .sub-title {
+      font-weight: 700;
+      left: 0;
       text-transform: uppercase;
+      width: 23ch;
     }
   }
 }
 
 @media (min-width: 768px) {
   h2 {
-    width: 70%;
+    width: 80%;
+    text-wrap: balance;
     margin-inline: auto;
   }
   .card {
     width: 50%;
+  }
+  .heading {
+    justify-content: space-between;
+    flex-direction: row;
   }
 }
 </style>

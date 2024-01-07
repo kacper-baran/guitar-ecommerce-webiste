@@ -18,5 +18,4 @@ import AboutSection from '/src/components/AboutSection.vue'
   <ArtistsSection></ArtistsSection>
   <AboutSection></AboutSection>
   <ContactSection></ContactSection>
-  <TheFooter></TheFooter>
 </template>

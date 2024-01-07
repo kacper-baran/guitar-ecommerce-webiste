@@ -73,7 +73,7 @@ h1 {
   top: 50%;
   translate: 0 -100%;
   letter-spacing: 2px;
-  font-size: clamp(3rem, 10vw, 6rem);
+  font-size: clamp(3rem, 9vw, 6rem);
   z-index: 2;
 }
 

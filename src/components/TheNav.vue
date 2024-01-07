@@ -1,9 +1,9 @@
 <template>
   <nav id="navbar">
     <div class="container">
-      <div class="logo">
+      <router-link :to="{ name: 'home' }" class="logo">
         <IconMilitaryAward size="55" stroke-width="1"></IconMilitaryAward>
-      </div>
+      </router-link>
       <ul class="menu" :class="{ menuActive: menuActive }">
         <li>
           <router-link class="nav-link" @click="closeMenu" :to="{ name: 'home' }">
@@ -11,21 +11,36 @@
           </router-link>
         </li>
         <li>
-          <a class="nav-link" @click="closeMenu" href="#products"> Products </a>
+          <router-link
+            class="nav-link"
+            @click="closeMenu"
+            :to="{ name: 'home', hash: '#products' }"
+          >
+            Products
+          </router-link>
         </li>
         <li>
-          <a class="nav-link" @click="closeMenu" href="#about"> About </a>
+          <router-link class="nav-link" @click="closeMenu" :to="{ name: 'home', hash: '#about' }">
+            About
+          </router-link>
         </li>
         <li>
-          <a class="nav-link" @click="closeMenu" href="#contact"> Contact </a>
+          <router-link class="nav-link" @click="closeMenu" :to="{ name: 'home', hash: '#contact' }">
+            Contact
+          </router-link>
         </li>
         <li>
-          <a class="nav-link" @click="closeMenu" href="#artist"> Artist </a>
+          <router-link class="nav-link" @click="closeMenu" :to="{ name: 'home', hash: '#artists' }">
+            Artist
+          </router-link>
         </li>
       </ul>
       <div class="controls">
-        <div class="cart-icon">
+        <div class="cart-icon" @click="handleCart">
           <IconShoppingCart></IconShoppingCart>
+          <div class="cart-size" v-if="productStore.cart.length !== 0">
+            {{ cartLength }}
+          </div>
         </div>
         <button class="hamburger desktop" :class="{ active: hamburgerActive }" @click="handleMenu">
           <div class="hamburger__inner">
@@ -37,11 +52,15 @@
       </div>
     </div>
   </nav>
+  <CartMenu :active="cartActive" @closeBtnClicked="handleCart"></CartMenu>
 </template>
 
 <script setup>
+import CartMenu from './CartMenu.vue'
 import { IconShoppingCart, IconMilitaryAward } from '@tabler/icons-vue'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useProductStore } from '/src/store/productsStore.js'
+const productStore = useProductStore()
 const menuActive = ref(false)
 const hamburgerActive = ref(false)
 
@@ -70,6 +89,18 @@ window.onscroll = function () {
     prevScrollpos = currentScrollPos
   }
 }
+const cartActive = ref(false)
+const handleCart = () => {
+  cartActive.value = !cartActive.value
+}
+
+const cartLength = computed(() => {
+  let length = 0
+  productStore.cart.forEach((el) => {
+    length += el.amount
+  })
+  return length
+})
 </script>
 
 <style lang="scss" scoped>
@@ -91,6 +122,7 @@ nav {
     padding-inline: 1rem;
   }
   .cart-icon {
+    position: relative;
     display: grid;
     place-items: center;
     border-radius: 50%;
@@ -98,6 +130,19 @@ nav {
     aspect-ratio: 1;
     width: 60px;
     color: white;
+    .cart-size {
+      position: absolute;
+      bottom: 0;
+      right: -10px;
+      aspect-ratio: 1;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      color: black;
+      font-weight: 700;
+      text-align: center;
+      background-color: #fff;
+    }
   }
   .controls {
     display: flex;
@@ -112,9 +157,9 @@ nav {
     flex-direction: column;
     align-items: center;
     list-style: none;
-    justify-content: center;
-    gap: 3rem;
+    justify-content: space-around;
     inset: 0;
+    padding-block: 3rem;
     background-color: black;
     translate: 120vw;
     transition: translate 0.3s ease-out;
@@ -131,7 +176,7 @@ nav {
     li {
       translate: 0 0;
     }
-    @for $i from 1 through 4 {
+    @for $i from 1 through 5 {
       $delay: $i * 0.1s;
       li:nth-of-type(#{$i}) {
         transition-delay: $delay;
@@ -218,6 +263,17 @@ nav {
   }
 }
 
+.cart-icon {
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  &:hover {
+    background-color: #fff;
+    color: black;
+  }
+}
+
 @media (min-width: 880px) {
   nav {
     .menu {
@@ -225,6 +281,9 @@ nav {
       inset: auto;
       height: auto;
       width: auto;
+      gap: 3rem;
+      padding-block: 0rem;
+
       translate: 0;
       li {
         translate: 0 0;
@@ -239,6 +298,18 @@ nav {
 
     .desktop {
       display: none;
+    }
+  }
+
+  .nav-link {
+    &::before {
+      bottom: -6px;
+      left: 50%;
+      height: 3px;
+      width: 100%;
+    }
+    &:hover::before {
+      scale: 1;
     }
   }
 }

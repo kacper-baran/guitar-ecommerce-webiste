@@ -1,17 +1,17 @@
 <template>
   <section id="categories">
-    <router-link class="acoustic" to="/electric-guitars">
+    <div class="acoustic">
       <div class="shadow"></div>
       <div class="arrow">
         <IconArrowNarrowRight size="48" />
       </div>
-    </router-link>
-    <router-link class="electric" to="/acoustic-guitars">
+    </div>
+    <div class="electric">
       <div class="shadow"></div>
       <div class="arrow">
         <IconArrowNarrowRight size="48" />
       </div>
-    </router-link>
+    </div>
   </section>
 </template>
 
