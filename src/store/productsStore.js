@@ -6,7 +6,7 @@ export const useProductStore = defineStore('product', {
         id: 'martin-d18',
         title: 'Martin D18 Satin',
         type: 'acoustic',
-        img: 'martin.jpeg',
+        img: '/img/martin.jpeg',
         price: 2500,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium repellat labore neque cum aut placeat, eligendi accusamus obcaecati accusantium iste ipsum dolorem similique ipsa molestiae officia assumenda delectus magnam ratione! Maxime ipsam possimus, quia quae quos impedit. Ut quam excepturi aliquid voluptas, repellendus in, ducimus mollitia, tenetur vel cumque exercitationem.'
       },
@@ -14,7 +14,7 @@ export const useProductStore = defineStore('product', {
         id: 'gibson-flying-v',
         title: 'Gibson flying V',
         type: 'electric',
-        img: 'gibson-flying-v.jpeg',
+        img: '/img/gibson-flying-v.jpeg',
         price: 4000,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium repellat labore neque cum aut placeat, eligendi accusamus obcaecati accusantium iste ipsum dolorem similique ipsa molestiae officia assumenda delectus magnam ratione! Maxime ipsam possimus, quia quae quos impedit. Ut quam excepturi aliquid voluptas, repellendus in, ducimus mollitia, tenetur vel cumque exercitationem.'
       },
@@ -22,7 +22,7 @@ export const useProductStore = defineStore('product', {
         id: 'gibson-sg',
         title: 'Gibson SG',
         type: 'electric',
-        img: 'gibson-sg.jpeg',
+        img: '/img/gibson-sg.jpeg',
         price: 3000,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium repellat labore neque cum aut placeat, eligendi accusamus obcaecati accusantium iste ipsum dolorem similique ipsa molestiae officia assumenda delectus magnam ratione! Maxime ipsam possimus, quia quae quos impedit. Ut quam excepturi aliquid voluptas, repellendus in, ducimus mollitia, tenetur vel cumque exercitationem.'
       },
@@ -30,7 +30,7 @@ export const useProductStore = defineStore('product', {
         id: 'gibson-les-paul',
         title: 'Gibson les paul',
         type: 'electric',
-        img: 'gibson-les-paul.jpeg ',
+        img: '/img/gibson-les-paul.jpeg ',
         price: 6000,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium repellat labore neque cum aut placeat, eligendi accusamus obcaecati accusantium iste ipsum dolorem similique ipsa molestiae officia assumenda delectus magnam ratione! Maxime ipsam possimus, quia quae quos impedit. Ut quam excepturi aliquid voluptas, repellendus in, ducimus mollitia, tenetur vel cumque exercitationem.'
       },
@@ -38,7 +38,7 @@ export const useProductStore = defineStore('product', {
         id: '8-string',
         title: '8 string guitar',
         type: 'electric',
-        img: 'adversary.png',
+        img: '/img/adversary.png',
         price: 4000,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium repellat labore neque cum aut placeat, eligendi accusamus obcaecati accusantium iste ipsum dolorem similique ipsa molestiae officia assumenda delectus magnam ratione! Maxime ipsam possimus, quia quae quos impedit. Ut quam excepturi aliquid voluptas, repellendus in, ducimus mollitia, tenetur vel cumque exercitationem.'
       },
@@ -46,7 +46,7 @@ export const useProductStore = defineStore('product', {
         id: 'snakebyte',
         title: 'ESL LTD snakebyte',
         type: 'electric',
-        img: 'esp.png',
+        img: '/img/esp.png',
         price: 2000,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium repellat labore neque cum aut placeat, eligendi accusamus obcaecati accusantium iste ipsum dolorem similique ipsa molestiae officia assumenda delectus magnam ratione! Maxime ipsam possimus, quia quae quos impedit. Ut quam excepturi aliquid voluptas, repellendus in, ducimus mollitia, tenetur vel cumque exercitationem.'
       },
@@ -54,7 +54,7 @@ export const useProductStore = defineStore('product', {
         id: 'ibanez',
         title: 'Ibanez Tim Henson',
         type: 'electro-acoustic',
-        img: 'ibanez.jpeg',
+        img: '/img/ibanez.jpeg',
         price: 5599,
         desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium repellat labore neque cum aut placeat, eligendi accusamus obcaecati accusantium iste ipsum dolorem similique ipsa molestiae officia assumenda delectus magnam ratione! Maxime ipsam possimus, quia quae quos impedit. Ut quam excepturi aliquid voluptas, repellendus in, ducimus mollitia, tenetur vel cumque exercitationem.'
       }

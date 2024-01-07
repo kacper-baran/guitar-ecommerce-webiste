@@ -21,7 +21,7 @@
       <div class="card" v-for="guitar in productStore.products" :key="guitar.id">
         <router-link :to="'/' + guitar.id" class="link"></router-link>
         <div class="img-container">
-          <img :src="useImage(guitar.img)" alt="picture of guitar" />
+          <img :src="guitar.img" :alt="guitar.title" />
         </div>
         <div class="text">
           <span>{{ guitar.title }}</span>
@@ -44,9 +44,8 @@ const handleProducts = (next) => {
   else cardsContainer.scrollBy(-323, 0)
 }
 
-function useImage(url) {
-  return new URL(`/guitar-ecommerce-webiste/src/assets/img/${url}`, import.meta.url).href
-}
+
+
 </script>
 
 <style lang="scss" scoped>

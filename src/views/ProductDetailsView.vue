@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="img-container">
-      <img :src="useImage(item.img)" alt="" />
+      <img :src="item.img" :alt="item.title" />
     </div>
     <div class="text-container">
       <h3>{{ item.title }}</h3>
@@ -32,9 +32,6 @@ getItem()
 watch(route, () => {
   getItem()
 })
-function useImage(url) {
-  return new URL(`/guitar-ecommerce-webiste/src/assets/img/${url}`, import.meta.url).href
-}
 </script>
 
 <style lang="scss" scoped>
