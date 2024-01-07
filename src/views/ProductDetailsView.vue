@@ -33,7 +33,7 @@ watch(route, () => {
   getItem()
 })
 function useImage(url) {
-  return new URL(`${url}`, import.meta.url).href
+  return new URL(`/guitar-ecommerce-webiste/src/assets/img/${url}`, import.meta.url).href
 }
 </script>
 

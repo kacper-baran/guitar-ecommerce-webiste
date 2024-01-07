@@ -21,7 +21,7 @@
       <div class="card" v-for="guitar in productStore.products" :key="guitar.id">
         <router-link :to="'/' + guitar.id" class="link"></router-link>
         <div class="img-container">
-          <img :src="guitar.img" alt="picture of guitar" />
+          <img :src="useImage(guitar.img)" alt="picture of guitar" />
         </div>
         <div class="text">
           <span>{{ guitar.title }}</span>
@@ -29,51 +29,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="card-container">
-      <div class="card">
-        <router-link to="/guitar-details" class="link"></router-link>
-        <div class="img-container">
-          <img src="/src/assets/img/ibanez.jpeg" alt="Electro-acoustic guitar" />
-        </div>
-        <div class="text"><span>guitar</span><span>4000$</span></div>
-      </div>
-      <div class="card">
-        <router-link to="/guitar-details" class="link"></router-link>
-        <div class="img-container">
-          <img src="/src/assets/img/martin.jpeg" alt="Acoustic guitar" />
-        </div>
-
-        <div class="text"><span>guitar</span><span>7000$</span></div>
-      </div>
-      <div class="card">
-        <router-link to="/guitar-details" class="link"></router-link>
-        <div class="img-container">
-          <img src="/src/assets/img/adversary.png" alt="8 string guitar" />
-        </div>
-        <div class="text"><span>guitar</span><span>2999$</span></div>
-      </div>
-      <div class="card">
-        <router-link to="/guitar-details" class="link"></router-link>
-        <div class="img-container">
-          <img src="/src/assets/img/gibson-sg.jpeg" alt="Red Gibson SG guitar" />
-        </div>
-        <div class="text"><span>guitar</span><span>2000$</span></div>
-      </div>
-      <div class="card">
-        <router-link to="/guitar-details" class="link"></router-link>
-        <div class="img-container">
-          <img src="/src/assets/img/gibson-les-paul.jpeg" alt="Gibson les paul" />
-        </div>
-        <div class="text"><span>guitar</span><span>8000$</span></div>
-      </div>
-      <div class="card">
-        <router-link to="/guitar-details" class="link"></router-link>
-        <div class="img-container">
-          <img src="/src/assets/img/gibson-flying-v.jpeg" alt="Gibson flying v guitar" />
-        </div>
-        <div class="text"><span>guitar</span><span>5000$</span></div>
-      </div>
-    </div> -->
   </section>
 </template>
 
@@ -87,6 +42,10 @@ const handleProducts = (next) => {
   const cardsContainer = document.querySelector('.card-container')
   if (next) cardsContainer.scrollBy(323, 0)
   else cardsContainer.scrollBy(-323, 0)
+}
+
+function useImage(url) {
+  return new URL(`/guitar-ecommerce-webiste/src/assets/img/${url}`, import.meta.url).href
 }
 </script>
 
