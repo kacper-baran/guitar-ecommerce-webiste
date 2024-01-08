@@ -144,6 +144,8 @@ section {
       left 0.5s ease-in-out,
       transform 0.5s ease-in-out,
       background-color 0.5s ease-in-out;
+          -ms-transform-style: preserve-3d;
+
 
     img {
       width: 100%;
@@ -217,7 +219,7 @@ section {
     place-items: center;
     background-color: #0000007f;
     width: 70px;
-    aspect-ratio: 1;
+    height: 70px;
     border-radius: 50%;
     z-index: 5;
     border: none;

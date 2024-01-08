@@ -204,16 +204,18 @@ nav {
     height: 4px;
     width: 100%;
     background-color: white;
-    transition: all 0.3s ease-out;
+    transition: all 0.2s ease-out;
     &:first-child {
+      left: 0;
       top: 0;
     }
 
     &:last-child {
+      left: 0;
       bottom: 0;
     }
     &:nth-child(2) {
-      left: 33.3%;
+      left: 0;
       top: 50%;
       translate: 0% -50%;
     }
@@ -225,17 +227,21 @@ nav {
   }
 
   &.active .hamburger-item:first-child {
+    left: 15px;
+
     position: absolute;
     rotate: -135deg;
     top: 6px;
   }
   &.active .hamburger-item:last-child {
+    left: 15px;
+
     bottom: 6px;
     rotate: 135deg;
   }
 
   &.active .hamburger-item:nth-child(2) {
-    left: 0;
+    left: -5px;
     width: 90%;
   }
 }

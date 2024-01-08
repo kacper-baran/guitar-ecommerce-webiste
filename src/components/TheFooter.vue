@@ -116,6 +116,8 @@ ul {
 .flex-row {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 0;
 }
 

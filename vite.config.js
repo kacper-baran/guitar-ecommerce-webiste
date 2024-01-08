@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/guitar-ecommerce-webiste/',
+  // base: '/guitar-ecommerce-webiste/',
   plugins: [vue()],
   resolve: {
     alias: {

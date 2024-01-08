@@ -43,9 +43,6 @@ const handleProducts = (next) => {
   if (next) cardsContainer.scrollBy(323, 0)
   else cardsContainer.scrollBy(-323, 0)
 }
-
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -101,16 +98,21 @@ h2 {
 
   .img-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #fff;
     height: 100%;
     border-radius: 8px;
     overflow: hidden;
+    
   }
+
   img {
-    max-width: 100%;
+    height: auto;
+    width: auto;
     max-height: 100%;
+    max-width: 100%;
   }
 
   .text {

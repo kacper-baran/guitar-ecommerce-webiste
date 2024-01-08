@@ -29,7 +29,7 @@ import gibsonIcon from './icons/gibsonIcon.vue'
   div {
     height: 70px;
     & > * {
-      width: 100%;
+      width: auto;
       height: 100%;
     }
   }
