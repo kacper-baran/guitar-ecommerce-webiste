@@ -1,35 +1,14 @@
 # guitar-shop
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is a website for a online guitar shop. 
 
-## Recommended IDE Setup
+## Built with 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<ul>
+  <li>Vue</li>
+  <li>SCSS</li>
+</ul>
 
-## Customize configuration
+## Screen shots for this project
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+![guitar-shop-full3-gRdwgMiF](https://github.com/kacper-baran/guitar-ecommerce-webiste/assets/146641945/f59fc91c-7af1-4ffe-b766-dda78a22e5c1)
